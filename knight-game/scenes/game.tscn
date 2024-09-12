@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://o4pwtp3cuv4h"]
+
+[ext_resource type="PackedScene" uid="uid://bpvouvteq5ypj" path="res://scenes/player.tscn" id="1_132ll"]
+[ext_resource type="Texture2D" uid="uid://cknvdov08asy6" path="res://assets/tileset_world_v1.png" id="2_n56xj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vx6j4"]
+texture = ExtResource("2_n56xj")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/size_in_atlas = Vector2i(2, 2)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/size_in_atlas = Vector2i(2, 2)
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_lmbhr"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_vx6j4")
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_132ll")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(12, -8)
+zoom = Vector2(4, 4)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_lmbhr")
+format = 2
+layer_0/tile_data = PackedInt32Array(65537, 0, 2, 1, 0, 0, 0, 0, 0, 65536, 0, 2, 65538, 0, 2, 65539, 0, 2, 2, 131072, 0, 3, 131072, 0, 131073, 131072, 2, 131072, 0, 2, 131074, 0, 2, 131075, 0, 2, 65541, 131072, 0, 65542, 131072, 0, 65543, 0, 0, 65544, 131072, 0, 131079, 0, 2, 131078, 0, 2, 131077, 0, 2, 131080, 131072, 2, 65535, 131072, 0, 131071, 0, 2, 196607, 0, 2, 196611, 0, 2, 196610, 0, 2, 196609, 0, 2, 196608, 0, 2, 262143, 0, 2, 196613, 0, 2, 196614, 0, 2, 196615, 0, 2, 196616, 0, 2)
